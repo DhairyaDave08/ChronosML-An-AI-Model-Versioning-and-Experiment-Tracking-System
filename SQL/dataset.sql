@@ -1,8 +1,4 @@
 set search_path to chronos_ml;
--- ============================================================
--- chronos_ml  —  Realistic seed data  (~320 rows)
--- ============================================================
-SET search_path TO chronos_ml;
 
 -- ── USERS ──────────────────────────────────────────────────
 INSERT INTO Users(User_ID,Password_Hash,Role,Created_At,Email,First_Name,Middle_Name,Last_Name) VALUES ('c4495d27-5ef3-417a-912c-f5cbf6adca73','9424138522bf611657319def7a31b1f103cd3ccbca88c70c63c2df239668','Data Administrator','2022-02-05 07:14:00','rahul.verma0@yahoo.co.in','Rahul','Kumar','Verma');
