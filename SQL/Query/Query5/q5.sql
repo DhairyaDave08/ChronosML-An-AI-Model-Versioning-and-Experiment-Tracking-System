@@ -1,4 +1,4 @@
--- Q7.  ALGORITHM CATEGORY BENCHMARKS
+-- Q5.  ALGORITHM CATEGORY BENCHMARKS
 --      Average metrics grouped by ML Category (Supervised,
 --      Deep Learning, etc.) — high-level portfolio health.
 SELECT
