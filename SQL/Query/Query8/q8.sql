@@ -1,4 +1,4 @@
--- Q12. TOP PERFORMERS PER PROBLEM TYPE
+-- Q8. TOP PERFORMERS PER PROBLEM TYPE
 --      For each problem type (Classification, NLP, etc.)
 --      find the single best model version using window rank.
 WITH scored AS (
