@@ -1,4 +1,4 @@
--- Q5.  USER PRODUCTIVITY SCORECARD
+-- Q4.  USER PRODUCTIVITY SCORECARD
 --      For each user: runs triggered, models owned, datasets
 --      contributed to, and total artifact storage uploaded.
 SELECT
