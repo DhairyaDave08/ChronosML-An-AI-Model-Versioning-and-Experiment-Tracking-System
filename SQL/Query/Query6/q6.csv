@@ -1,6 +1,0 @@
-"model_name","challenger_version","challenger_status","environment","server_info","challenger_f1","baseline_version","baseline_f1","f1_improvement","acc_improvement","vloss_reduction","ab_verdict"
-"RecoEngine","v3.0","Retired","Staging","azure-eastus-aks","0.5632","v1.0","0.7436","-0.1804","-0.1685","-0.0315","baseline_wins"
-"SpeechTag","v3.0","Staging","Production","aws-ap-south-1-k8s","0.8382","v2.0","0.7029","0.1353","0.1354","0.0395","challenger_wins"
-"ImageSortNet","v2.0","Failed","Staging","aws-ap-south-1-k8s","0.7065","v3.0","0.8382","-0.1317","-0.1125","0.6272","baseline_wins"
-"ClusterX","v1.0","Rolled Back","Production","gcp-asia-south1-gke","0.6089","v2.0","0.7301","-0.1212","-0.1448","-0.1842","baseline_wins"
-"SupplyOpt","v1.0","Failed","Production","azure-centralindia-aks","0.7675","v1.0","0.6747","0.0928","0.0800","0.4087","challenger_wins"
