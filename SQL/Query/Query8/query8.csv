@@ -1,0 +1,7 @@
+"problem_type","model_name","version_no","algorithm","avg_f1","avg_acc","avg_vloss","run_count"
+"Classification","FraudEye-XGBoost","v1.0.0","XGBoost Classifier Tree","0.9575","0.9590","0.0650","1"
+"Clustering","AnomalyNet-AutoEnc","v1.0.0","Dense Convolutional Autoencoder","0.9148","0.8874","0.3208","45"
+"NLP","Sentitrade-RoBERTa","v1.1.0","Quantized Transformer Trunk","0.7345","0.7350","0.4320","1"
+"Object Detection","DefectDetect-YOLO","v1.0.0","YOLOv8 Medium Checkpoint","0.8800","0.8875","0.1995","2"
+"Other","UserGraph-Sage","v1.0.0","GraphSAGE Inductive Layer","0.9275","0.9410","0.0980","1"
+"Regression","HousePrice-Ridge","v1.0.0","Ridge L2 Regression Matrix","0.9605","0.9680","0.0520","1"
