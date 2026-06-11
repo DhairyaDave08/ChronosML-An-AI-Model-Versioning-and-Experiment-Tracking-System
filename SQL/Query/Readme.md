@@ -69,16 +69,16 @@ The query introduces `STDDEV()` to measure score variance, and `PERCENTILE_CONT(
 
 ---
 
-### 6. 🔀 Deployment A/B Comparison Using Self-Join
+### 6. 🔀 Deployment A/B Comparison Using Self-Join with Aggregation Fallback
 
-When a new model version is deployed alongside an existing one for comparison, the Deployment table records this relationship through the Compared_With foreign key, which points from the challenger deployment back to the baseline it is being tested against. Manually querying two separate rows and computing differences is impractical at scale. This query automates the comparison by joining the Deployment table to itself, treating one alias as the challenger and the other as the baseline, and computing metric deltas in a single result set.
+When a new model version is deployed alongside an existing one for comparison, the Deployment table records this relationship through the `Compared_With` foreign key, which points from the challenger deployment back to the baseline it is being tested against. Manually querying two separate rows and computing differences is impractical at scale. This query automates the comparison by joining the Deployment table data to itself, treating one alias as the challenger and the other as the baseline, and computing metric deltas in a single result set.
 
-The self-join is performed on the condition `baseline.Deployment_ID = challenger.Compared_With`, which resolves the foreign key relationship into a side-by-side row. A CTE first computes the average metrics per deployment by joining back to Training_Run and Evaluation_Metric, ensuring the comparison is based on real measured outcomes rather than stored estimates. A `CASE` expression then classifies each comparison as challenger wins, baseline wins, or no significant difference, using a 0.02 F1 threshold—small enough to be meaningful, large enough to filter statistical noise.
+To ensure the report handles varying deployment setups without dropping valid rows, the query utilizes a `LEFT JOIN` structure within a Common Table Expression (CTE). If a specific deployed version does not possess a direct, active `Training_Run` metric, a scalar fallback subquery via `COALESCE` dynamically samples historical performance averages from that model's architectural lineage. The self-join is then performed on the condition `baseline.Deployment_ID = challenger.Compared_With`, resolving the relationship into a unified side-by-side row layout. Finally, a `CASE` expression classifies each comparison as challenger wins, baseline wins, or no significant difference using a 0.02 F1 threshold—filtering out statistical noise while instantly isolating real deployment improvements.
 
 | 📑 Element | 🔍 Details |
 | --- | --- |
 | **Tables Involved** | Deployment, Training_Run, Evaluation_Metric, Model |
-| **Key SQL Concepts** | CTE for pre-aggregation, self-join on foreign key, metric delta computation, `CASE` expression for categorical verdict, `ORDER BY ABS(...)` for ranking by magnitude |
+| **Key SQL Concepts** | CTE for metric aggregation, `LEFT JOIN` and `COALESCE` for robust missing-data fallbacks, self-join on a foreign key link, metric delta computation, `CASE` expressions for categorical outcomes, `ORDER BY ABS(...)` for ranking variance magnitude |
 
 ---
 
